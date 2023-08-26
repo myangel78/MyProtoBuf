@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("Server");
     m_pServer = std::make_shared<Server>();
     m_pServer->StartThread();
 }

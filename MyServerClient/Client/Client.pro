@@ -22,6 +22,7 @@ CONFIG(debug,debug|release) {
     DESTDIR =  $$PWD/../bin/release/
 }
 
+include(../Common/ProtocCodec/ProtocCodec.pri)
 
 
 SOURCES += \
@@ -48,9 +49,29 @@ else:unix:!macx: LIBS += -L$$OUT_PWD/../bin/Applib/ -lNetwork
 INCLUDEPATH += $$PWD/../Common/Network
 DEPENDPATH += $$PWD/../Common/Network
 
+
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../bin/release/Applib/ -lDataBaseThread
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../bin/debug/Applib/ -lDataBaseThread
 else:unix:!macx: LIBS += -L$$PWD/../bin/Applib/ -lDataBaseThread
 
 INCLUDEPATH += $$PWD/../Common/DataBaseThread
 DEPENDPATH += $$PWD/../Common/DataBaseThread
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../Common/ProtocCodec/lib/ -llibprotobuf
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../Common/ProtocCodec/lib/ -llibprotobufd
+else:unix:!macx: LIBS += -L$$PWD/../Common/ProtocCodec/lib/ -llibprotobuf
+
+INCLUDEPATH += $$PWD/../Common/ProtocCodec/include
+DEPENDPATH += $$PWD/../Common/ProtocCodec/include
+
+unix:!macx|win32: LIBS +=  -L$$PWD/../bin/debug/Applib/ -lzlib
+unix:!macx|win32: LIBS +=  -L$$PWD/../bin/debug/Applib/ -lWS2_32
+
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../bin/release/Applib/ -lProtocCodec
+#else:win32:CONFIG(debug, debug|release): LIBS +=  -L$$PWD/../bin/debug/Applib/ -lProtocCodec
+#else:unix:!macx: LIBS +=-L$$PWD/../bin/Applib/  -lProtocCodec
+
+#INCLUDEPATH += $$PWD/../Common/ProtocCodec
+#DEPENDPATH += $$PWD/../Common/ProtocCodec
+

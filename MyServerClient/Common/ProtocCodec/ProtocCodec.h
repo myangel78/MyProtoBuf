@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "ProtocCodec_global.h"
+//#include "ProtocCodec_global.h"
 
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/message.h>
@@ -14,7 +14,7 @@
 #include <stdint.h>
 
 
-class PROTOCCODEC_EXPORT ProtocCodec
+class  ProtocCodec
 {
 public:
     ProtocCodec();

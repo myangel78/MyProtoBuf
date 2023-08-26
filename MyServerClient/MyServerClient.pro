@@ -9,7 +9,3 @@ SUBDIRS += \
     Common
 
 
-#    Common/Common.pri
-#    Common/Network
-
-

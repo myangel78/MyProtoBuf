@@ -3,5 +3,7 @@ TEMPLATE = subdirs
 SUBDIRS += \
     Network\
     DataBaseThread\
-    ProtocCodec
+#    ProtocCodec
+
+include(ProtocCodec/ProtocCodec.pri)
 
